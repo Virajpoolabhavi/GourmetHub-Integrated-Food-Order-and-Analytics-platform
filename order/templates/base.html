@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+
+        .nav-pills {
+          background-color: transparent;
+          justify-content: space-between;
+          height: 70px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          display: flex;
+          align-items: center;
+          padding: 0 50px;
+          box-sizing: border-box;
+          font-size: large;
+
+        }
+
+        .nav-link {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          margin: 5px;
+          background-color: rgb(238, 238, 243);
+          text-align: center;
+          line-height: 50px;
+          color: rgb(17, 16, 16);
+          text-decoration: none;
+        }
+
+
+        .nav-link.disabled {
+          background-color: rgb(105, 105, 105);
+          color: rgb(189, 189, 189);
+          pointer-events: none;
+        }
+
+        .nav-pills button:nth-child(2) {
+          margin-left: auto;
+        }
+
+        .login-signup {
+          display: flex;
+          align-items: center;
+        }
+
+        .login-signup a {
+          display: block;
+          width: 80px;
+          height: 40px;
+          margin-left: 10px;
+          background-color: rgb(142, 142, 238);
+          text-align: center;
+          line-height: 40px;
+          color: white;
+          text-decoration: none;
+        
+        }
+        .container {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          margin: 50px auto;
+          max-width: 600px;
+          background-color: #f1f1f1;
+          border-radius: 18px;
+          color: rgba(13, 1, 1, 0.704);
+          background-color: transparent;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+          border: 2px solid rgba(255,255,255,rgba(255,255,255,.2));
+          backdrop-filter: blur(10px);
+        }
+      
+        .container img {
+          width: 50%;
+          border-radius: 8px 0 0 8px;
+        }
+      
+        .description {
+          padding: 10px;
+          font-size: 17px;
+          font-weight: bold;
+          
+        }
+
+
+      </style>
+</head>
+<body style="background-image: url('/static/img/home-back.jpg')">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <h1 style="color: white">Welcome!!</h1>
+        <div class="login-signup">
+          <a href="register">Register</a>
+          <a href="login">Login</a>
+          <a href="admin">Admin</a>
+        </div>
+      </nav>
+
+      <div class="container">
+        <img src="/static/img/spice.jpg" alt="Image">
+        <div class="description">
+          <h2>Food Ordering App</h2>
+          <h4>This is a Dynamic  Food Ordering Website  created using Python Framework Django.</h4>
+          <br>
+  
+        </div>
+      </div>
+    
+</body>
+</html>

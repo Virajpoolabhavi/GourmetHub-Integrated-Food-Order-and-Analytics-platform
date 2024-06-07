@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-image: url('/django/order/static/img/img3.jpg');
+}
+.container {
+    width: 420px;
+    margin: 50px auto;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    background-color: transparent;
+    text-align: center;
+    color: #ccc;
+    border: 2px solid rgba(255,255,255,rgba(255,255,255,.2));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 50px rgba(0, 0,0, .1);
+    padding: 30px 40px;
+    
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #ccc;
+    background-color: transparent;  
+    box-sizing: border-box;
+    border-radius: 50px;
+    
+}
+input::placeholder{
+    color: #fff;
+
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 50px;
+}
+button:hover {
+    opacity: 0.8;
+}
+.signup-link {
+    color: #fff;
+    text-decoration: none;
+}

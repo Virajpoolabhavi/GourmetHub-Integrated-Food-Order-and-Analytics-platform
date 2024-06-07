@@ -1,0 +1,185 @@
+<!DOYPE html>
+<html>
+<head>
+	<title>Order Items</title>
+<style>
+	body {
+		font-size: 17px;
+        font-weight: bold;
+		margin: 2px 0;
+		padding: 0;
+		background-color: #edf0e6;
+		background-size: cover;
+	  }
+	  
+	nav    {
+		background-color: rgb(222, 220, 220);
+		padding: 15px 40px;
+		display: flex;
+		justify-content: space-between;
+	  }
+	.nav-menu {
+		display: flex;
+		align-items: center;
+	  }
+	  
+	.nav-menu div {
+		margin: 0 10px;
+	  }
+	  
+	.nav-button {
+		background-color: #333333;
+		color: #fff;
+		height: 50%;
+		padding: 14px 20px;
+		border: none;
+		border-radius: 15px;
+		cursor: pointer;
+		text-align: center;
+	  }
+	  
+	main {
+		padding: 20px;
+	  }
+	  
+	.product-container {
+		display: flex;
+		border-radius: 5px;
+		margin: 30px auto;
+		align-items: center;
+		border: 1px solid #ddd;
+		border-radius: 25px;
+		background-color: rgb(255, 255, 255);
+		backdrop-filter: blur(10px);
+		border: 2px solid rgba(255,255,255,rgba(255,255,255,.2));
+		box-shadow: 0 0 50px rgba(0, 0, 0, 0.1); /* Blur effect */
+		padding: 20px;
+		width: 90%;
+	  }
+	  
+	.product-container img {
+		width: 100px;
+		height: 150px;
+		object-fit: cover;
+		margin-right: 20px;
+	  }
+	  
+	.product-info {
+		flex: 1;
+		color: rgb(11, 10, 10);
+	  }
+	  
+	.product-info h3 {
+		margin-bottom: 5px;
+	  }
+	  
+	.quantity-button {
+		display: flex;
+		align-items: center;
+	  }
+	  
+	.quantity-button span {
+		margin-right: 10px;
+	  }
+	  
+	.quantity-button button {
+		background-color: #0e0101;
+		color: #f9f3f3;
+		padding: 5px 10px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	  }
+	.quantity-button button3{
+		background-color: #010d01;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		border-radius: 50px;
+	}
+	.quantity-button:hover {
+		opacity: 0.8;
+	}
+	.quantity-button input[type=password]{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		color: #fff;
+		border: 1px solid #ccc;
+		background-color: transparent;  
+		box-sizing: border-box;
+		border-radius: 50px;
+		
+	}
+	.order-button-container {
+		display: flex;
+		justify-content: center;
+		margin-top: 50px;
+	  }
+	  
+	  .order-button {
+		background-color: #6ae770;
+		color: #fff;
+		padding: 14px 20px;
+		border: none;
+		cursor: pointer;
+		border-radius: 50px;
+		font-size: 20px;
+		width: 200px;
+	  }
+	  
+	  .order-button:hover {
+		opacity: 0.8;
+	  }
+	  
+	form{
+		display: inline-block;
+		margin: 0 10px;
+	}
+</style>
+</head>
+<body>
+	<nav>
+		<div class="nav-menu">
+			<h1>Menu Items </h1>
+		</div>
+		<form action="{% url 'cdash' %}" method="post">
+			{% csrf_token %}
+			 <button class="nav-button " type="submit" style="text-align: center;">HotelDashboard</button>
+			</form>
+		<form action="{% url 'dash' %}" method="post">
+		{% csrf_token %}
+		 <button class="nav-button " type="submit" style="text-align: center;">User Dashboard</button>
+		</form>
+	</nav>
+	  {% for item in menu%}
+	  <div class="product-container"> <img src="/media/{{item.image}}" alt="Product 3">
+		<div class="product-info">
+		  <h3>{{item.name}} </h3>
+		  <p>{{item.description}}</p>
+		  <h3>Price : {{item.price}}</h3>
+		</div>
+		
+		<div class="quantity-button">
+			<form action="{% url 'add' %}" method="post">
+				{% csrf_token %}
+		    <span style="color: #161515;">Quantity: <input type="number" name="{{item.id}}_qty" value="0"></span>
+		  		<button type="submit">Add</button>
+		</form>
+		</div>
+	  </div>
+	
+	  {% endfor %}
+	<div class="order-button-container">
+		<form action="{% url 'order' %}" method="post">
+			{% csrf_token %}
+			<button  class='order-button' type="submit"> order</button>
+		</form>
+	</div>
+</div>
+</body>
+</html>

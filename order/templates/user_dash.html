@@ -1,0 +1,65 @@
+<!-- donut_chart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donut Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body{
+        align-items: center;
+      }
+      nav{
+        background-color: aqua;
+        text-align: center;
+        height: 50px;
+        font-size: large;
+        padding: 10px 3px;
+      }
+      .container1{
+        align-items: center;
+        text-align: center;
+        background-color: rgb(203, 192, 192);
+      }
+      .container{
+        width: 40%;
+        height: auto;
+      }
+
+    </style>
+
+</head>
+<body>
+  <nav><center><h1 >Dashboard</h1></center></nav>
+  <div class="container1">
+        <div class="container">
+          <canvas id="myChart" ></canvas>
+          <h1>User Order Analysis</h1>
+        </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: {{label|safe}},
+            datasets: [{
+              label: 'order status ',
+              data: {{data|safe}},
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+    </div>
+</body>
+</html>
